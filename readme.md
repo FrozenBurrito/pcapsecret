@@ -1,5 +1,3 @@
-<img src="screenshot.jpg" width="75%" height="75%" />
-
 # pcapsecret v0.1
 
 Pcapsecret injects a secret message into a packet capture (pcap) file.
@@ -47,8 +45,13 @@ pip install -r requirements.txt
 
 ### Running pcapsecret
 ```
-python pcapsecret.py --help
 python pcapsecret.py input.pcap "Secret Message Test!"
+```
+<img src="screenshot.jpg" width="75%" height="75%" />
+
+### Usage
+```
+python pcapsecret.py --help
 ```
 <img src="usage-screenshot.jpg" width="75%" height="75%" />
 
