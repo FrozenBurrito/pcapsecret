@@ -1,0 +1,15 @@
+# build
+Ignore
+Lib
+Scripts
+share
+
+# config
+pyvenv.cfg 
+
+# environment
+.env
+
+# pcap files
+*.cap
+*.pcap
