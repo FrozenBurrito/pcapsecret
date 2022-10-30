@@ -19,6 +19,7 @@ I made pcapsecret as a game for students in my Comp. Sci. class (but also for fu
     * time_hint_small = time changed to outside range of time of pkts +2 or -2 indices away, causing packet to appear out of place. 
     * time_hint_large = significant time change (index hint as time_hint_small).
     * length_hint = malformed packet length due to size on wire != captured size.
+        * Easier to detect due to Wireshark auto-highlighting this type of malformed packet.
     * addr_hint_1 = MAC and/or IP source and destination are random, not in input pcap file.
     * addr_hint_2 = Ethernet layer contains broadcast mac address in source and destination.
 * For fun, try using a shortened url as the secret message.
