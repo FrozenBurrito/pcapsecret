@@ -7,6 +7,7 @@ Pcapsecret injects a secret message into a packet capture (pcap) file.
 I made pcapsecret as a game for my Cybersecurity class (but also for fun and to learn about the scapy library!).  Here's what it does:
 
 * Reads packets from input pcap file and extracts basic data with pipe system;
+   * Does not modify input pcap file.
 * Segments secret message and encapsulates message segments with encap chars (default: <>);
 * Injects message segments as payloads in random sequential packets; 
     * Payload containing the message segment is appended to the last bytes of each chosen packet.
