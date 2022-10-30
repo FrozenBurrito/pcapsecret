@@ -1,6 +1,6 @@
 # pcapsecret v0.1
 
-Pcapsecret injects a secret message into a packet capture (pcap) file.  Students use Wireshark or a similar tool to: 1) find the malform packets, and 2) reconstruct the secret message by combining the last bytes of each malfolrmed packet.
+Pcapsecret injects a secret message into a packet capture (pcap) file.  Students use Wireshark or a similar tool to: 1) inspect the output.pcap file to find the malformed packets, and 2) reconstruct the secret message by combining the last bytes of each malfolrmed packet.
 
 ## Description
 
