@@ -1,21 +1,21 @@
 # pcapsecret v0.1
 
-Pcapsecret injects a secret message into a packet capture (pcap) file.
+Pcapsecret injects a secret message into a packet capture (pcap) file.  
 
 ## Description
 
-I made pcapsecret as a game for my Cybersecurity class (but also for fun and to help me learn about the scapy library)!  Here's what it does:
+I made pcapsecret as a game for students in my Comp. Sci. class (but also for fun and to help me learn about [scapy](https://scapy.readthedocs.io/en/latest/index.html)!)  Here's what it does:
 
-* Reads packets from input pcap file and extracts basic data with pipe system;
+* Reads packets from input pcap file and extracts basic data (with scapy's pipetools);
    * Does not modify input pcap file.
-* Segments secret message and encapsulates message segments with encap chars (default: <>);
+* Segments secret message and encapsulates message segments with encap chars (default encap chars: <>);
 * Injects message segments as payloads in random sequential packets; 
-    * Payload containing the message segment is appended to the last bytes of each chosen packet.
-* Provides hints by malforming packets which contain message segments;
+    * Payloads containing message segments are <b>appended to the last bytes of each chosen packet</b>.
+* Provides <br>hints by malforming or modifying packets which contain message segments</b>;
 * Saves packets to output.pcap; and
 * Prints answer key table to console.
 * Hint Types (To Do: add hint types):
-    * no_hint (disabled) = add segment as payload, reset length (difficult to detect)       
+    * no_hint (disabled) = add segment as payload, reset size on wire = captured size (difficult to detect).      
     * time_hint_small = time changed to outside range of time of pkts +2 or -2 indices away, causing packet to appear out of place. 
     * time_hint_large = significant time change (index hint as time_hint_small).
     * length_hint = malformed packet length due to size on wire != captured size.
@@ -34,8 +34,8 @@ python -m venv .
 source bin/activate
 pip install -r requirements.txt
 ```
-* Windows:
-    * First, download and install the [NMap Project's packet capture library for Windows](https://npcap.com/).
+* Windows:\
+First, download and install the [NMap Project's packet capture library for Windows](https://npcap.com/).
 ```
 git clone https://github.com/FrozenBurrito/pcapsecret.git
 cd pcapsecret
@@ -58,7 +58,7 @@ python pcapsecret.py --help
 
 ## Help
 
-Let me know if you have any suggestions.
+Let me know if you have any questions or suggestions!
 
 ## Authors
 
@@ -81,5 +81,3 @@ This project is licensed under the MIT License.  See the LICENSE.md file for det
 
 * [NMap Project's packet capture library for Windows](https://npcap.com/)
 * [pylint issues with scapy in VS Code](https://stackoverflow.com/questions/51852412/vscode-import-error-from-scapy-all-import-ip)
-
-
