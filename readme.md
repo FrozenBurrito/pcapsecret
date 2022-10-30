@@ -28,7 +28,7 @@ I made pcapsecret as a game for my Cybersecurity class (but also for fun and to 
 * Linux:
 ```
 git clone https://github.com/FrozenBurrito/pcapsecret.git
-cd processage
+cd pcapsecret
 python -m venv .
 source bin/activate
 pip install -r requirements.txt
@@ -37,7 +37,7 @@ pip install -r requirements.txt
     * First, download and install the [NMap Project's packet capture library for Windows](https://npcap.com/).
 ```
 git clone https://github.com/FrozenBurrito/pcapsecret.git
-cd processage
+cd pcapsecret
 python -m venv .
 scripts\activate.bat 
 pip install -r requirements.txt
