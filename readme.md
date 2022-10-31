@@ -27,7 +27,8 @@ I made pcapsecret as a game for students in my Comp. Sci. class (but also for fu
 ## Getting Started
 
 ### Cloning and Environment Setup
-* Linux:
+* Linux:\
+Libpcap required, but is already provided in many distributions.
 ```
 git clone https://github.com/FrozenBurrito/pcapsecret.git
 cd pcapsecret
