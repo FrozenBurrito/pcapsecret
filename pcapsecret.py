@@ -108,7 +108,7 @@ def inject_msg_and_hints(message: list, input_filename: str, output_filename: st
     try:
         packets = rdpcap(input_filename)
     except Exception as e:
-        print(e)
+        print("Error reading input file:", input_filename, repr(e))
         sys.exit(1)
     
     TOTAL_PACKET_COUNT = len(packets)
@@ -175,7 +175,7 @@ def inject_msg_and_hints(message: list, input_filename: str, output_filename: st
     try:
         wrpcap(output_filename, packets)
     except Exception as e:
-        print(e)
+        print("Error writing to output file:", output_filename, repr(e))
         sys.exit(1)
     return None
 
@@ -218,8 +218,11 @@ def main()->None:
                         required=False, default="plaintext", choices=['plaintext', 'binary', 'hex'],
                         help="output encoding type (ascii plaintext, binary string, or hex string) (optional, default: %(default)s)")
     """
-
-    args = parser.parse_args()
+    try:
+        args = parser.parse_args()
+    except Exception as e:
+        print("Error parsing command line arguments:", repr(e))
+        sys.exit(1)
 
     if len(args.secret_message) < 4:
         print("Error: Message must be at least 4 characters.")
@@ -237,12 +240,14 @@ def main()->None:
     try:
         pipe_extract(args.input_filename, args.output_filename)
     except Exception as e:
-        print("Error extracting data from input file:", e)
+        print("Error extracting data from input file:", repr(e))
+        sys.exit(1)
 
     try: 
         inject_msg_and_hints(segment_message(args.secret_message, args.message_segment_count, args.encap), args.input_filename, args.output_filename)
     except Exception as e:
-        print("Error segmented and injecting message:", e)
+        print("Error segmenting and injecting message:", repr(e))
+        sys.exit(1)
 
     print("Secret Message (" + args.secret_message + ") was segmented into " + str(len(ANSWER_KEY)) + 
           " parts and injected into the following packets:")
