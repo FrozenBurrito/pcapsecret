@@ -10,8 +10,8 @@ I made pcapsecret as a game for students in my Comp. Sci. class (but also for fu
    * Does not modify input pcap file.
 * Segments secret message and encapsulates message segments with encap chars (default encap chars: <>);
 * Injects message segments as payloads in random sequential packets; 
-    * Payloads containing message segments are <b>appended to the last bytes of each chosen packet</b>.
-* Provides <br>hints by malforming or modifying packets which contain message segments</b>;
+    * Payloads containing message segments are <b>appended as the last bytes of each chosen packet</b>.
+* Provides hints by malforming or modifying packets which contain message segments;
 * Saves packets to output.pcap; and
 * Prints answer key table to console.
 * Hint Types (To Do: add hint types):
