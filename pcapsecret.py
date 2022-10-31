@@ -111,7 +111,15 @@ def inject_msg_and_hints(message: list, input_filename: str, output_filename: st
         print("Error reading input file:", input_filename, repr(e))
         sys.exit(1)
     
+    # handle rare event that packet capture file does not contain enough packets to store all msg segments
+    # consider setting TOTAL_PACKET_COUNT in pipe_extract and moving this to segment_message function
     TOTAL_PACKET_COUNT = len(packets)
+    if len(message) * 2 > TOTAL_PACKET_COUNT:
+        print("Error:  Input pcap file contains too few packets to store all message segments.", 
+              "Try using a larger input pcap file (generally, with > message length * 2 packets)",
+              "or specifying a smaller message segment count with the -s option")
+        sys.exit(1)
+
     hint_types = ["time_hint_small", "time_hint_large", "length_hint", "addr_hint_1", "addr_hint_2"]
     """
     Note following line in cases below, which ensures that length on wire (wirelen) is equal to captured length (caplen)
