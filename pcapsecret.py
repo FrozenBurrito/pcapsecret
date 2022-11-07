@@ -62,7 +62,7 @@ def segment_message(message: str, message_segment_count: int, encap: str)->list(
     elif message_segment_count > len(message):
         message_segment_count = len(message)
     step = math.ceil(len(message) / message_segment_count)
-    if len(encap) > 0 or encap == 'n':
+    if len(encap) > 0 and encap != "n":
         message_segments = [encap[0] + message[i:i+step] + encap[1] for i in range(0, len(message), step)] 
     else:
         message_segments = [message[i:i+step] for i in range(0, len(message), step)] 
@@ -237,7 +237,7 @@ def main()->None:
         sys.exit(1)
 
     if args.encap == "n":
-        args.encap = ""
+        #args.encap = ""
         print("Using no encapsulation string.")
     elif len(args.encap) != 2:
         print("Error: Encapsulation string must be 2 characters (or 'n' for none).  Example: \"<>\"")
