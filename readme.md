@@ -1,4 +1,4 @@
-# pcapsecret v0.1
+# pcapsecret v0.2
 
 Pcapsecret injects a secret message into a packet capture (pcap) file.  Students use Wireshark or a similar tool to: 1) inspect an output.pcap file to find malformed packets, and 2) reconstruct the secret message by combining the last bytes of each sequential malformed packet.
 
@@ -70,6 +70,9 @@ Jon Morris, [frozenburrito](https://github.com/frozenburrito)
 ## Version History
 * 0.1
     * It works!
+* 0.2
+    * Updated dependencies for compatibility with Python 3.7+
+    * Error handling for empty (None type) input_filename and secret_message
 
 ## License
 
