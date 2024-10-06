@@ -1,2 +1,4 @@
-scapy==2.4.5
+# scapy 2.4.5 used in initial main code branch, but >= 2.5.0 is required for Python 3.7+
+# using scapy >= 2.5.0 is required for Python > 3.7.  See https://scapy.net/ for more info.
+scapy>=2.5.0
 tabulate==0.9.0
