@@ -232,6 +232,14 @@ def main()->None:
         print("Error parsing command line arguments:", repr(e))
         sys.exit(1)
 
+    if args.secret_message == None:
+        print("Error: Secret message required.  Try 'python pcapsecret.py -h' for usage info.")
+        sys.exit(1)
+
+    if args.input_filename == None:
+        print("Error: Input filename required.  Try 'python pcapsecret.py -h' for usage info.")
+        sys.exit(1)
+    
     if len(args.secret_message) < 4:
         print("Error: Message must be at least 4 characters.")
         sys.exit(1)
